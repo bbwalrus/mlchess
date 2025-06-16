@@ -1,0 +1,186 @@
+:root {
+  --header-height: 3.5rem;
+
+  --chessboard-dark: #B3D89C; /* A more vibrant green for dark squares */
+  --chessboard-light: #FFF8E1; /* A softer cream for light squares */
+  --chessboard-border: #403b33; /* Dark border for contrast and focus */
+  --cell-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for cells */
+
+  /*Font and typography*/
+  --title-font: "Poppins", sans-serif; /* Modern, versatile font */
+  --body-font: "Roboto", sans-serif; /* Highly readable for body text */
+  --biggest-font-size: 2.5rem; /* Slightly larger for emphasis */
+  --normal-font-size: 1rem; /* Standard size for readability */
+  --small-font-size: .875rem; /* Adjusted for consistency */
+
+
+  /* Font weight */
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+
+  /* z index */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-padding-top: 4rem;
+  scroll-behavior: smooth;
+  list-style: none;
+  text-decoration: none;
+}
+
+.App {
+  margin: 10%;
+  margin-top: var(--header-height);
+  padding: 20px;
+  background-color:#e6e6fa;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  text-align: center;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  background-color: #e6e6fa;
+}
+
+.cell {
+  height: 80px;
+  width: 80px;
+  border: 2px solid var(--chessboard-border); 
+  border-radius: var(--border-radius); 
+  color: var(--text-color);
+  font-size: 3.25rem;
+  text-align: center; 
+  box-shadow: var(--cell-shadow); 
+}
+
+.cell span {
+  cursor: move;
+  background-color: transparent;
+}
+
+.cell:hover {
+  transform: translateY(-5px);
+}
+
+.blackcell {
+  background-color: var(--chessboard-dark);
+}
+
+
+.whitecell {
+  background-color: var(--chessboard-light);
+}
+
+.logo {
+  width: 200px;
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1); 
+}
+
+.logo:hover {
+  transform: scale(1.1); 
+}
+
+.announcement {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  background-color: #e6e6fa;
+  border-radius: 15px;
+  border: black solid 2px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px 40px 20px 40px;
+  text-align: center;
+}
+
+/* Close button */
+.close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  color: black;
+}
+
+/* Play Again button */
+.play-again-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: black;
+  border: black solid 1px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.play-again-button:hover {
+  background-color: #45a049;
+}
+
+/* Promotion Selection */
+.promotion-selection {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #403b33; /* Match the chessboard border for consistency */
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adds depth with a shadow */
+  text-align: center; /* Center-align text for a neat look */
+  z-index: var(--z-tooltip); /* Use a z-index from your root variable */
+}
+
+/* Promotion Piece Buttons */
+.promotion-selection button {
+  font-size: var(--normal-font-size); /* Use the variable for font size */
+  color: #333; /* Dark text color for readability */
+  background-color: var(--chessboard-light); /* Light background for buttons */
+  border: 2px solid var(--chessboard-border); /* Borders matching the chessboard */
+  padding: 10px 15px; /* Comfortable padding around the text */
+  margin: 10px; /* Space between buttons */
+  cursor: pointer; /* Cursor to indicate clickability */
+  border-radius: var(--border-radius); /* Rounded corners */
+  box-shadow: var(--box-shadow); /* Consistent shadow with other elements */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover Effect for Buttons */
+.promotion-selection button:hover {
+  background-color: var(--chessboard-dark); /* Change color on hover for feedback */
+}
+
+/* CSS class for the drag icon used during piece dragging */
+.drag-icon {
+  font-size: 3.25rem;
+  font-family: 'Arial', sans-serif;
+  color: inherit; /* Inherit the color from the parent element */
+  background-color: transparent; /* Ensure no background */
+  position: absolute; /* Position absolutely to avoid affecting layout */
+  top: -9999px; /* Move off-screen */
+}
