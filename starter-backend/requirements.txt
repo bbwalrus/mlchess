@@ -1,5 +1,5 @@
 flask==2.3.3
 flask-cors==4.0.0
 python-chess==1.999
-torch==2.1.0
+torch==2.7.1
 numpy==1.26.4
